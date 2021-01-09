@@ -26,4 +26,3 @@ class TurnFlow:
             currentMinion = self.guild[self.index]
             self.simpleCombat(currentMinion)
             self.index += 1
-print('Test')
