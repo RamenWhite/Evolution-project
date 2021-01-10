@@ -26,7 +26,7 @@ class MobBoss:
 
     def execute_creation(self):
         self.RGB_determination()
-        self.health = 1000
+        self.health = 500
         self.red = self.listElement[0]
         self.green = self.listElement[1]
         self.blue = self.listElement[2]
