@@ -13,16 +13,30 @@ class TurnFlow:
 
         outPerTurn = 0 #Dmg dealt each turn
         inPerTurn = 0 #Dmg received each turn
+
         for i in allResult:
-            if allResult[i] >= 0:
-                outPerTurn += allResult[i]
-                print("Damage out : " + str(allResult[i]))
+            if allResult[i] <= 0:
+                inPerTurn += allResult[i] #Addition because allresult[1] would be negative
             else:
-                inPerTurn += allResult[i]
-                print("Damage in : " + str(allResult[i]))
-    
+                outPerTurn += allResult[i] 
+       
+        while currentMinion.health > 0:
+            print("The minion has ", currentMinion.health)
+            self.mob.health -= outPerTurn
+            print("The mob was hit for", outPerTurn)
+
+            currentMinion.health += inPerTurn            
+            print("The minion has been hit for", abs(inPerTurn),  "\*/ He is now at", currentMinion.health)
+            if currentMinion.health <= 0:
+                break
+                    
+        
     def followingCombats(self):
         for i in self.guild:
             currentMinion = self.guild[self.index]
             self.simpleCombat(currentMinion)
+            print("*************************************")
+            print ("The minion died : ", self.index)
+            print("The mob's health is now : ", self.mob.health)
+            print("*************************************")
             self.index += 1
