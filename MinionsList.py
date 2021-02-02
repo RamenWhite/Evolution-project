@@ -6,7 +6,8 @@ class MinionsList:
         self.guild = []
         self._index = -1
     
-    def create_minion(self):
+    def create_minion(self, identity):
+        self.identity = identity
         health = 20 #Every minions has the same number of HP
         blue = randint(1, 15)
         red = randint(1, 15)
