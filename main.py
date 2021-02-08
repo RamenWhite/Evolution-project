@@ -6,7 +6,7 @@ from MinionsList import MinionsList
 
 minionsList = MinionsList()
 for e in range(50): #Creates 50 minion, and add it to the guild
-    minionsList.create_minion()
+    minionsList.create_minion("Minion#" + str(e))
 
 index = 0
 for j in minionsList.guild: #Show stats of all the minions
